@@ -153,6 +153,7 @@ const newGame = function(){
     }
     currentScore[0].innerHTML = currentSum;
     currentScore[1].innerHTML = currentSum;
+    canClick = true;
 }
 
 xButton.addEventListener('click', closeModal);
