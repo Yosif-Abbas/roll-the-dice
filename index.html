@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Roll Dice</title>
+</head>
+<body>
+    <div class="container">
+        <button class="new-game-btn">🕹️ New Game</button>
+        <button class="roll-btn">🎲 Roll</button>
+        <button class="hold-btn">✋ Hold</button>
+        <div class="dice1 dice hidden"><span></span></div>
+        <div class="dice2 dice hidden"><span></span><span></span></div>
+        <div class="dice3 dice hidden"><span></span><span></span><span></span></div>
+        <div class="dice4 dice hidden"><span></span><span></span><span></span><span></span></div>
+        <div class="dice5 dice hidden"><span></span><span></span><span class="span2"></span><span></span><span></span></div>
+        <div class="dice6 dice hidden"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="notice">⚠️ You can't hold unless you make at least one roll</p>
+        <div class="sec left">
+            <div class="header header1">
+                <h1 class="player player1">Player 1</h1>
+                <h1 class="score score1"><span class="final-score final-score1">0</span></h1>
+            </div>
+            <div class="square left-square">
+                <p class="current">Current</p>
+                <h2 class="current-score"><span class="sum sum1">0</span></h2>
+            </div>
+        </div>
+        <div class="sec right">
+            <div class="header header2">
+                <h1 class="player player2">Player 2</h1>
+                <h1 class="score score2"><span class="final-score final-score2">0</span></h1>
+            </div>
+            <div class="square right-square">
+                <p class="current">Current</p>
+                <h2 class="current-score"><span class="sum sum2">0</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="modal"><p>🏆 Player <span class="player-number">0</span> won the game</p><span class="x-button">&times;</span></div>
+
+    <div class="overlay"></div>
+
+
+    <script src="script/script.js"></script>
+</body>
+</html>
