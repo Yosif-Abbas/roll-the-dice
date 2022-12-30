@@ -8,12 +8,9 @@
       content="roll, yosif abbas, yosif, abbas, dice, roll the dice, roll dice, play, roll and hold game, game"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/style.css" />
     <title>Roll Dice</title>
   </head>
@@ -64,9 +61,18 @@
         </div>
       </div>
     </div>
-    <div class="modal">
-      <p>🏆 Player <span class="player-number">0</span> won the game</p>
+    <div class="modal hidden">
+      <p>🏆  <span class="player-won"></span> won the game</p>
       <span class="x-button">&times;</span>
+    </div>
+    <div class="hidden modal inputs-modal">
+      <label for="player1" class="player-lb player1-lb">Player 1</label>
+      <input type="text" id="player1" class="player-name" placeholder="ex:Yosif">
+      <label for="player2" class="player-lb player2-lb">Player 2</label>
+      <input type="text" id="player2" class="player-name" placeholder="ex:Ziad">
+      <p id="msg1"></p>
+      <p id="msg2"></p>
+      <button class="sub-btn">submit</button>
     </div>
 
     <div class="overlay"></div>

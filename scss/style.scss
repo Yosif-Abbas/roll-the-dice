@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -250,4 +250,46 @@ body {
     background-color: #88888899;
     z-index: 9;
     display: none;
+}
+
+.inputs-modal{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputs-modal .player-lb{
+  margin: 12px;
+}
+
+.inputs-modal .player-name{
+  border: 1px solid #555;
+  padding: 4px 12px;
+  font-size: 24px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.inputs-modal button{
+  outline: none;
+  background: none;
+  font-size: 24px;
+  padding: 4px 12px;
+  margin-top: 12px;
+  border: none;
+  background: #0292e4;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.inputs-modal button:hover{
+  background: #0783db;
+}
+
+.inputs-modal #msg1{
+  font-size: 16px;
+  text-transform: none;
+  margin-top: 12px;
+  color: #ff1414;
 }

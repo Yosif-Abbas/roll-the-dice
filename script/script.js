@@ -14,10 +14,18 @@ const notice = document.querySelector(".notice");
 let fFinalScore = finalScore[0];
 let cCurrentScore = currentScore[0];
 let canClick = true;
-let playerNumber = document.querySelector(".player-number");
+let playerWon = document.querySelector(".player-won");
 const overlay = document.querySelector(".overlay");
 const xButton = document.querySelector(".x-button");
 const modal = document.querySelector(".modal");
+const hidden = document.querySelectorAll(".hidden");
+const inputsModal = document.querySelector(".inputs-modal");
+const player1 = document.getElementById('player1');
+const player2 = document.getElementById('player2');
+const msg1 = document.getElementById('msg1');
+const subButton = document.querySelector('.sub-btn');
+const player1Name = document.querySelector('.player1');
+const player2Name = document.querySelector('.player2');
 
 let currentSum = 0;
 let finalSum1 = 0;
@@ -78,22 +86,32 @@ const switchPlayers = function () {
 
 const whoWon = function (player, num) {
   if (num === 1) {
-    playerNumber.innerHTML = "1";
+    playerWon.innerHTML = player1Name.innerHTML;
   } else {
-    playerNumber.innerHTML = "2";
+    playerWon.innerHTML = player2Name.innerHTML;
   }
-  return player >= 100;
+  return player >= 50;
 };
 
-const openModal = function () {
-  overlay.style.display = "block";
+const openModal = function(){
   modal.style.display = "flex";
-};
+  overlay.style.display = "block";
+}
 
-const closeModal = function () {
-  overlay.style.display = "none";
+const closeModal = function(){
   modal.style.display = "none";
-};
+  overlay.style.display = "none";
+}
+
+const openInputsModal = function(){
+  inputsModal.style.display = "flex";
+  overlay.style.display = "block";
+}
+
+const closeInputsModal = function(){
+  inputsModal.style.display = "none";
+  overlay.style.display = "none";
+}
 
 const roll = function () {
   if (canClick) {
@@ -154,6 +172,17 @@ const newGame = function () {
   canClick = true;
 };
 
+const inputs = function(in1, in2){
+  if(in1.length <= 2 || in1.length > 10 || in2.length <= 2 || in2.length > 10){
+    msg1.innerHTML = "Name should be from 3 to 10 letters."
+  }else{
+    closeInputsModal();
+    player1Name.innerHTML = in1;
+    player2Name.innerHTML = in2;
+  }
+}
+closeModal();
+openInputsModal();
 xButton.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 document.addEventListener("keydown", function (e) {
@@ -175,3 +204,6 @@ if (fFinalScore == finalScore[0]) {
 rollButton.addEventListener("click", roll);
 holdButton.addEventListener("click", hold);
 newGameButton.addEventListener("click", newGame);
+subButton.addEventListener('click', function(){
+  inputs(player1.value, player2.value);
+});
