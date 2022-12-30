@@ -184,15 +184,8 @@ const inputs = function(in1, in2){
 closeModal();
 openInputsModal();
 xButton.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeModal();
-});
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") hold();
-});
-document.addEventListener("keydown", function (e) {
-  if (e.key === " ") roll();
 });
 if (fFinalScore == finalScore[0]) {
   secRight.classList.add("shadowed");
