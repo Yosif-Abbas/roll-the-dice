@@ -165,6 +165,7 @@ const hold = function () {
 };
 
 const newGame = function () {
+  hideDices();
   currentSum = 0;
   finalSum1 = 0;
   finalSum2 = 0;
