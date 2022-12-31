@@ -5,6 +5,7 @@ const secRight = document.querySelector(".right");
 const rollButton = document.querySelector(".roll-btn");
 const holdButton = document.querySelector(".hold-btn");
 const newGameButton = document.querySelector(".new-game-btn");
+const rulesButton = document.querySelector(".rules-btn");
 const dices = document.querySelectorAll(".dice");
 const finalScore = document.querySelectorAll(".final-score");
 const finalScore1 = document.querySelector(".final-score1");
@@ -19,13 +20,18 @@ const overlay = document.querySelector(".overlay");
 const xButton = document.querySelector(".x-button");
 const modal = document.querySelector(".modal");
 const hidden = document.querySelectorAll(".hidden");
-const inputsModal = document.querySelector(".inputs-modal");
-const player1 = document.getElementById('player1');
-const player2 = document.getElementById('player2');
-const msg1 = document.getElementById('msg1');
-const subButton = document.querySelector('.sub-btn');
-const player1Name = document.querySelector('.player1');
-const player2Name = document.querySelector('.player2');
+const startModal = document.querySelector(".start-modal");
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+const msg1 = document.getElementById("msg1");
+const subButton = document.querySelector(".sub-btn");
+const player1Name = document.querySelector(".player1");
+const player2Name = document.querySelector(".player2");
+const game = document.querySelector(".container");
+const inputsSection = document.querySelector(".inputs-sec");
+const rulesSection = document.querySelector(".rules-sec");
+const okBtn = document.querySelector('.ok-btn');
+let okClickable = false;
 
 let currentSum = 0;
 let finalSum1 = 0;
@@ -93,25 +99,25 @@ const whoWon = function (player, num) {
   return player >= 50;
 };
 
-const openModal = function(){
+const openModal = function () {
   modal.style.display = "flex";
   overlay.style.display = "block";
-}
+};
 
-const closeModal = function(){
+const closeModal = function () {
   modal.style.display = "none";
   overlay.style.display = "none";
-}
+};
 
-const openInputsModal = function(){
-  inputsModal.style.display = "flex";
+const openstartModal = function () {
+  startModal.style.display = "flex";
   overlay.style.display = "block";
-}
+};
 
-const closeInputsModal = function(){
-  inputsModal.style.display = "none";
+const closestartModal = function () {
+  startModal.style.display = "none";
   overlay.style.display = "none";
-}
+};
 
 const roll = function () {
   if (canClick) {
@@ -172,17 +178,44 @@ const newGame = function () {
   canClick = true;
 };
 
-const inputs = function(in1, in2){
-  if(in1.length <= 2 || in1.length > 10 || in2.length <= 2 || in2.length > 10){
-    msg1.innerHTML = "Name should be from 3 to 10 letters."
-  }else{
-    closeInputsModal();
+const inputs = function (in1, in2) {
+  if (
+    in1.length <= 2 ||
+    in1.length > 10 ||
+    in2.length <= 2 ||
+    in2.length > 10
+  ) {
+    msg1.innerHTML = "Name should be from 3 to 10 letters.";
+  } else {
     player1Name.innerHTML = in1;
     player2Name.innerHTML = in2;
+    switchSection();
+  }
+};
+
+const okBtnFun = function() {
+  if(okClickable){
+    startModal.style.display = "none";
+    game.style.display = 'flex';
+    inputsSection.style.display = "none";
+    rulesSection.style.width = "100%";
   }
 }
-closeModal();
-openInputsModal();
+
+const switchSection = function(){
+  okBtn.style.cursor = "pointer";
+  okClickable = true;
+  inputsSection.classList.remove('selected');
+  inputsSection.classList.add('not-selected');
+  rulesSection.classList.remove('not-selected');
+  rulesSection.classList.add('selected');
+}
+
+const showRules = function(){
+  startModal.style.display = "flex";
+  game.style.display = 'none';
+}
+
 xButton.addEventListener("click", closeModal);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeModal();
@@ -197,6 +230,8 @@ if (fFinalScore == finalScore[0]) {
 rollButton.addEventListener("click", roll);
 holdButton.addEventListener("click", hold);
 newGameButton.addEventListener("click", newGame);
-subButton.addEventListener('click', function(){
+subButton.addEventListener("click", function () {
   inputs(player1.value, player2.value);
 });
+okBtn.addEventListener("click", okBtnFun);
+rulesButton.addEventListener("click", showRules);

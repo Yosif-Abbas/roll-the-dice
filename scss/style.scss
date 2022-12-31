@@ -26,13 +26,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
+  display: none;
   text-align: center;
   border-radius: 15px;
   overflow: hidden;
 }
 
-.sec {
+.container .sec {
   padding: 2rem;
   background: #ffffffcc;
   width: 425px;
@@ -49,16 +49,16 @@ body {
   background: #fff;
 }
 
-.sec .player {
+.container .sec .player {
   text-transform: uppercase;
 }
 
-.sec .score {
+.container .sec .score {
   font-size: 5em;
   color: #1775d2;
 }
 
-.sec .square {
+.container .sec .square {
   background: #1775d2;
   color: #fff;
   padding: 1.5rem 4rem;
@@ -76,11 +76,11 @@ body {
   outline: none;
   box-shadow: 1px 1px 1px #88888888;
   border: 0;
-  // border: 1px solid #333;
   padding: 0.25rem 0.75rem;
   border-radius: 0.75rem;
   text-transform: uppercase;
   cursor: pointer;
+  z-index: 5;
 }
 
 .container button:hover {
@@ -91,19 +91,20 @@ body {
   background: #fff;
 }
 
+.container .rules-btn {
+  top: 4.5%;
+}
+
 .container .new-game-btn {
   top: 12.5%;
-  z-index: 5;
 }
 
 .container .roll-btn {
   top: 62.5%;
-  z-index: 5;
 }
 
 .container .hold-btn {
   top: 75%;
-  z-index: 5;
 }
 
 .container .dice {
@@ -212,7 +213,7 @@ body {
 
 .modal{
     background: #fff;
-    width: 650px;
+    width: 750px;
     height: 325px;
     margin: auto;
     position: absolute;
@@ -252,17 +253,21 @@ body {
     display: none;
 }
 
-.inputs-modal{
-  display: none;
-  flex-direction: column;
-  justify-content: center;
+.start-modal{
+  display: flex;
+  justify-content: space-around;
+  width: 850px;
+  height: 600px;
+  background: transparent;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.inputs-modal .player-lb{
+.start-modal .player-lb{
   margin: 12px;
 }
 
-.inputs-modal .player-name{
+.start-modal .player-name{
   border: 1px solid #555;
   padding: 4px 12px;
   font-size: 24px;
@@ -270,7 +275,7 @@ body {
   outline: none;
 }
 
-.inputs-modal button{
+.start-modal button{
   outline: none;
   background: none;
   font-size: 24px;
@@ -283,13 +288,47 @@ body {
   cursor: pointer;
 }
 
-.inputs-modal button:hover{
+.start-modal button:hover{
   background: #0783db;
 }
 
-.inputs-modal #msg1{
+.start-modal #msg1{
   font-size: 16px;
   text-transform: none;
   margin-top: 12px;
   color: #ff1414;
+}
+
+.start-modal .sec{
+  width: 50%;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-modal .selected{
+  background: #ffffffcc;
+}
+
+.start-modal .not-selected{
+  opacity: 0.5;
+  background: #fff;
+}
+
+.start-modal .rules-sec p{
+  font-size: 20px;
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.start-modal .rules-sec .ok-btn{
+  cursor: auto;
+}
+
+.start-modal .rules-sec{
+  line-height: 26px;
+  padding: 1rem;
 }

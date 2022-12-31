@@ -16,6 +16,7 @@
   </head>
   <body>
     <div class="container">
+      <button class="rules-btn">📃 Rules</button>
       <button class="new-game-btn">🕹️ New Game</button>
       <button class="roll-btn">🎲 Roll</button>
       <button class="hold-btn">✋ Hold</button>
@@ -65,14 +66,22 @@
       <p>🏆  <span class="player-won"></span> won the game</p>
       <span class="x-button">&times;</span>
     </div>
-    <div class="hidden modal inputs-modal">
-      <label for="player1" class="player-lb player1-lb">Player 1</label>
-      <input type="text" id="player1" class="player-name" placeholder="ex:Yosif">
-      <label for="player2" class="player-lb player2-lb">Player 2</label>
-      <input type="text" id="player2" class="player-name" placeholder="ex:Ziad">
-      <p id="msg1"></p>
-      <p id="msg2"></p>
-      <button class="sub-btn">submit</button>
+    <div class="modal hidden start-modal">
+      <div class="inputs-sec sec selected">
+        <label for="player1" class="player-lb player1-lb">Player 1</label>
+        <input type="text" id="player1" class="player-name" placeholder="ex:Yosif">
+        <label for="player2" class="player-lb player2-lb">Player 2</label>
+        <input type="text" id="player2" class="player-name" placeholder="ex:Ziad">
+        <p id="msg1"></p>
+        <p id="msg2"></p>
+        <button class="sub-btn">submit</button>
+      </div>
+      <div class="rules-sec sec not-selected">
+        <h4 class="rules-head">Rules</h4>
+        <p class="game-rules game-rules1">You roll the dice and the current score will be add together if the dice is not one, if the dice is one your turn is over and your current score is wasted.</p>
+        <p class="game-rules game-rules2">You hold your current score to be saved , and the player that gets 50 saved points first wins.</p>
+        <button class="btn ok-btn">OK</button>
+      </div>
     </div>
 
     <div class="overlay"></div>
